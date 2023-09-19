@@ -1,12 +1,11 @@
-import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar'
-function App() {
+import HomePage from "./page/HomePage";
+
+const App = () => {
   return (
     <>
-      <NavBar></NavBar>
-      <ItemListContainer greeting="Bienvenido al sitio!"></ItemListContainer>
+      <HomePage></HomePage>
     </>
   );
-}
+};
 
 export default App;
