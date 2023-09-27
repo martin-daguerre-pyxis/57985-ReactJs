@@ -16,13 +16,13 @@ const ItemListContainer = (props) => {
     }
 
     if (!dataProducts) return (
-        <div className="inline-block mx-auto my-6 h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-secondary motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
-            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+        <div className="relative mx-auto mt-6 mb-24 h-24 w-24 animate-spin rounded-full border-4 border-solid border-deep-purple-500 border-r-transparent align-[-0.125em] text-secondary motion-reduce:animate-[spin_1.5s_linear_infinite]">
+            <span className="absolute left-1/2 overflow-hidden whitespace-nowrap border-0 p-0 [clip:rect(0,0,0,0)]"></span>
         </div>
     );
 
     return (<>
-        <div className="container flex flex-row flex-wrap justify-center gap-6 mx-auto mt-16 mb-16 columns-3">
+        <div className="container flex flex-row flex-wrap justify-center gap-3 mx-auto mt-16 mb-16 lg:gap-6 columns-2 lg:columns-3">
             {dataProducts.map((product) => (
                 <ItemList
                     key={product.id}

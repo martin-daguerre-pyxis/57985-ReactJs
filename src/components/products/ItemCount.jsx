@@ -28,7 +28,7 @@ export const ItemCount = ({ id, stock = 1, initial = 0, intervalo = 1, onAdd, da
                 <button type="button" onClick={more} className="w-10 font-bold rounded-md bg-blue-gray-100">+</button>
             </div>
             <div className="w-full">
-                <button type="button" disabled={disabled} className="w-full p-3 disabled:text-gray-400 disabled:bg-gray-200 rounded-r-md bg-blue-gray-900/10 text-blue-gray-900" onClick={addProduct}>Agregar al Carrito</button>
+                <button type="button" disabled={disabled} className="w-full p-3 text-white disabled:text-gray-400 disabled:bg-gray-200 rounded-r-md bg-deep-purple-300" onClick={addProduct}>Agregar al Carrito</button>
             </div>
         </div>
     )

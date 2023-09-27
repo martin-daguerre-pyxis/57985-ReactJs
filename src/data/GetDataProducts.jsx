@@ -5,7 +5,7 @@ const GetDataProducts = () => {
     // Emulo una petición a una API
     setTimeout(() => {
       resolve(products.products);
-    }, 100); // Simulamos un retraso de 2 segundo
+    }, 2000); // Simulamos un retraso de 2 segundo
   });
 }
 

@@ -1,11 +1,15 @@
-const NavBarLink = ({ children, target, href, selected, styleLink, styleSelected }) => {
-    let sel = selected ? styleSelected : "";
+import { NavLink } from "react-router-dom";
+
+const NavBarLink = ({ children, target, href, styleLink, styleSelected }) => {
     return (<>
-        <a className={sel + styleLink}
-            href={href}
+        <NavLink
+            className={({ isActive }) =>
+                isActive ? styleSelected + styleLink : styleLink
+            }
+            to={href}
             target={target}>
             {children}
-        </a>
+        </NavLink>
     </>);
 }
 
