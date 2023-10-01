@@ -1,5 +1,5 @@
 export const products = {
-  products: [
+  data: [
     {
       id: 1,
       title: "Explorando la Sanación Emocional con Yoga y Caballos",

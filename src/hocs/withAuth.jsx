@@ -1,22 +1,14 @@
-import { Component } from "react"
+import React from 'react';
+import useAuth from './useAuth';
+import useContext from './useContext';
 
-const config = {
-    routes: {
-        public: [
-            '/login',
-            '/home',
-            '/about',
-            '/contact',
-            '/',
-        ],
-        private: [
-            '/profile',
-            '/dashboard',
-            '/settings',
-        ]
+const withAuth = (Component) => {
+
+    return (props) => {
+        const auth = useAuth();
+        const store = useContext();
+        return <Component {...props} auth={auth} store={store} />;
     }
 }
-const withAuth = (Component) => {
-    return Component;
-}
+
 export default withAuth;

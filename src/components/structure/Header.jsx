@@ -4,8 +4,10 @@ import NavBar from '../navigation/NavBar';
 import NavBarLink from '../navigation/NavBarLink';
 import CartWidget from '../cart/CartWidget';
 import publicUrl from '../../utils';
+import { Link } from 'react-router-dom';
 
-const Header = ({ children }) => {
+const Header = ({ isAuthenticated, children }) => {
+
     return (
         <>
             <header className="sticky top-0 z-10 p-0 px-6 text-yellow-100 bg-purple-700 body-font">
@@ -13,7 +15,7 @@ const Header = ({ children }) => {
 
                     <div className="flex items-center flex-shrink-0 mx-6 text-white lg:ml-0">
                         <a className="flex items-center py-3 font-medium text-orange-300 title-font md:mb-0 hover:text-orange-400" href="/" title="Ecommerce MDD">
-                            <img src={publicUrl + "/logo.svg"} className="w-36" alt="logo" />
+                            <img src={publicUrl + "logo.svg"} className="w-36" alt="logo" />
                         </a>
                     </div>
 
@@ -36,7 +38,34 @@ const Header = ({ children }) => {
                                 </NavBarLink>
                             </NavBar>
                         </div>
-                        <div className="block">
+                        <div className="flex">
+                            {isAuthenticated ? <>
+                                <div className="relative flex-row-reverse justify-end ml-3">
+                                    <button type="button"
+                                        className="flex w-16 h-12 p-1 text-sm border-0 rounded-full cursor-pointer group focus:outline-none"
+                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                        <span className="sr-only">Open user menu</span>
+                                        <img className="w-16 h-12 rounded-full"
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            alt="" />
+                                        <div
+                                            className="absolute right-0 z-10 hidden w-48 py-1 mt-10 text-left origin-top-right bg-white rounded-md shadow-lg group-focus:block animate-open-menu ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                            <Link to="/profile" className="block px-4 py-2 text-sm text-gray-500 no-underline active:bg-gray-100 hover:bg-gray-50"
+                                                role="menuitem" tabindex="-1" id="user-menu-item-0">Perfil</Link>
+                                            <Link to="/settings" className="block px-4 py-2 text-sm text-gray-500 no-underline active:bg-gray-50 hover:bg-gray-50"
+                                                role="menuitem" tabindex="-1" id="user-menu-item-1">Configuración</Link>
+                                            <Link to="/logout" className="block px-4 py-2 text-sm text-gray-500 no-underline active:bg-gray-50 hover:bg-gray-50"
+                                                role="menuitem" tabindex="-1" id="user-menu-item-2">Salir</Link>
+                                        </div>
+                                    </button>
+                                </div>
+                            </> : <>
+                                <div className="relative flex-row-reverse justify-end mr-3">
+                                    <NavBarLink href="/login"
+                                        styleLink="block font-title p-3 relative text-white text-xl">Login / Registro</NavBarLink>
+                                </div>
+                            </>}
                             <CartWidget></CartWidget>
                         </div>
                     </div>

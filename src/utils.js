@@ -1,2 +1,2 @@
-const publicUrl = process.env.PUBLIC_URL;
+const publicUrl = process.env.PUBLIC_URL + '/';
 export default publicUrl

@@ -1,11 +1,20 @@
+/* eslint-disable eqeqeq */
 import { products } from './products';
 
-const GetDataProducts = () => {
+const GetDataProducts = (id) => {
+
   return new Promise((resolve, reject) => {
     // Emulo una petición a una API
     setTimeout(() => {
-      resolve(products.products);
-    }, 2000); // Simulamos un retraso de 2 segundo
+      // console.log(id);
+      if (id) {
+        const res = products.data.find(data => data.id == id);
+        console.log(res);
+        resolve(res);
+      } else {
+        resolve(products.data);
+      }
+    }, 2000); // Simulamos un retraso...
   });
 }
 
