@@ -9,7 +9,7 @@ const GetDataProducts = (id) => {
       // console.log(id);
       if (id) {
         const res = products.data.find(data => data.id == id);
-        console.log(res);
+        // console.log(res);
         resolve(res);
       } else {
         resolve(products.data);

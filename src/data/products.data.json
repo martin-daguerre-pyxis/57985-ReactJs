@@ -73,9 +73,7 @@
     "stock": 10,
     "status": true,
     "category": "Escolares",
-    "thumbnails": [
-      "https://cdn.kemik.gt/2021/10/07552-1-526x526.jpg"
-    ]
+    "thumbnails": ["https://cdn.kemik.gt/2021/10/07552-1-526x526.jpg"]
   },
   {
     "id": 7,
@@ -86,9 +84,7 @@
     "stock": 10,
     "status": true,
     "category": "Escolares",
-    "thumbnails": [
-      "https://escool.uy/repo/img/semicirculomaped_0.jpg"
-    ]
+    "thumbnails": ["https://escool.uy/repo/img/semicirculomaped_0.jpg"]
   },
   {
     "id": 8,

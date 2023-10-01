@@ -2,7 +2,6 @@ import ItemCount from "./ItemCount";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemGalery from './ItemGalery';
-import publicUrl from '../../utils';
 
 const Item = ({ props }) => {
     const { id, title, description, price, pictureUrl, images, video, stock, brand, category } = props;
@@ -21,20 +20,15 @@ const Item = ({ props }) => {
     }
     return (<>
         <section className="text-gray-700 bg-white/60">
-            <div className="w-full px-5 py-24 mx-auto ">
-                <div className="flex flex-wrap">
-                    <ItemGalery pictureUrl={pictureUrl} images={images} video={video}></ItemGalery>
-                    <figure>
-                        <picture>
-                            <img className="object-cover object-center w-full border border-gray-200 rounded lg:w-1/2"
-                                src={ publicUrl + pictureUrl}
-                                alt={title} />
-                        </picture>
-                        <figcaption className="relative left-0 px-3 py-1 text-xs text-white rounded-xl budge bg-amber-900/80 top-1">
-                            {category}
-                        </figcaption>
-                    </figure>
-                    <div className="w-full mt-6 lg:w-1/2 lg:pl-10 lg:py-6 lg:mt-0">
+            <div className="w-full px-5 py-24 mx-auto">
+                <span className="top-0 left-0 z-50 w-auto px-3 py-1 text-xs text-white abolute rounded-xl budge bg-amber-900/80">
+                    {category}
+                </span>
+                <div className="sm:flex sm:columns-2">
+                    <div className="relative w-full sm:w-1/2 aspect-square">
+                        <ItemGalery pictureUrl={pictureUrl} images={images} video={video}></ItemGalery>
+                    </div>
+                    <div className="w-full mt-6 sm:w-auto sm:pl-10 sm:py-6 sm:mt-0">
                         <h2 className="text-sm tracking-widest text-gray-500 title-font">
                             {brand}
                         </h2>

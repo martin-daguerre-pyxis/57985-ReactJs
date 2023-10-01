@@ -7,10 +7,10 @@ import {
 import ItemCount from "./ItemCount";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import publicUrl from "../../utils";
 
 const ItemList = ({ props }) => {
-    const { id, title, description, price, pictureUrl,
-        discounts, stock, brand, category, images, video } = props;
+    const { id, title, description, price, pictureUrl, stock, category } = props;
 
     const [showDialog, setShowDialog] = useState(false);
     const [qty, setQuatity] = useState(0);
@@ -29,7 +29,7 @@ const ItemList = ({ props }) => {
             <CardHeader shadow={true} floated={false} className="relative h-96">
                 <Link to={`/item/${id}/${encodeURIComponent(title)}`}>
                     <img
-                        src={pictureUrl}
+                        src={`${publicUrl}products/${pictureUrl}`}
                         alt={title}
                         className="object-cover w-full h-full mt-4"
                     />

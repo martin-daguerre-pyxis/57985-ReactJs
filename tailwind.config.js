@@ -6,7 +6,8 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         body: ["Montserrat", "sans-serif"],
-        title: ["Lobster Two", "cursive"],
+        title: ["Montserrat", "sans-serif"],
+        title2: ["Lobster Two", "cursive"],
       },
     },
     dialog: {
