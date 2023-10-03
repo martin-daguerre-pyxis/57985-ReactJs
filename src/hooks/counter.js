@@ -10,7 +10,7 @@ const useCounter = ({ initial = 0, stock = 0, intervalo = 1 }) => {
   };
 
   const less = () => {
-    if (newValue >= 1) {
+    if (newValue >= 2) {
       setNewValue(newValue - intervalo);
     }
   };

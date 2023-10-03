@@ -6,6 +6,64 @@ body {
   @apply block min-h-full m-0 antialiased font-body;
 }
 
-#menu-toggle:checked+#menu {
+#menu-toggle:checked + #menu {
   @apply block lg:flex;
+}
+
+.subscribe{
+  animation: 3s 1 forwards cubic-bezier(0.9, -0.01, 0.9, 1.10) slideDown,
+    1.5s Infinite linear heartbeat;
+  animation-delay: 0s, 6s;
+}
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.02);
+  }
+  30% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

@@ -2,7 +2,7 @@ import DefaultLayout from "../layouts/default.layout";
 import Item from '../components/products/Item';
 import withAuth from '../hocs/withAuth';
 import { useEffect, useState } from 'react';
-import GetDataProducts from '../data/GetDataProducts';
+import GetDataProduct from '../data/GetDataProduct';
 import { Link, useParams } from 'react-router-dom';
 
 const ProductDetail = (props) => {
@@ -10,7 +10,7 @@ const ProductDetail = (props) => {
   const { itemId, slug } = useParams();
 
   useEffect(() => {
-    GetDataProducts(itemId).then(productsData => {
+    GetDataProduct(itemId).then(productsData => {
       setProduct(productsData);
     });
   }, []);
@@ -18,9 +18,13 @@ const ProductDetail = (props) => {
   const addToCart = () => {
 
   }
+  const context = {
+    auth: props.auth,
+    store: props.store
+  };
 
   if (!product) return (<>
-    <DefaultLayout auth={props.auth} store={props.store}
+    <DefaultLayout context={context} 
       className="flex flex-col justify-around flex-grow layout_home-page font-body">
       <div className="container flex flex-row flex-wrap justify-center gap-3 mx-auto mt-16 mb-16 lg:gap-6 columns-2 lg:columns-3">
         <div className="text-center">
@@ -39,7 +43,7 @@ const ProductDetail = (props) => {
   );
 
   return (<>
-    <DefaultLayout auth={props.auth} store={props.store}
+    <DefaultLayout context={context} 
       className="flex flex-col justify-around flex-grow font-body">
       <div className="container mx-auto">
 
@@ -47,11 +51,12 @@ const ProductDetail = (props) => {
           key={product.id}
           addToCart={addToCart}
           props={{
+            context,
             id: product.id,
             title: product.title,
             description: product.description,
             price: product.price,
-            pictureUrl: product.pictureUrl,
+            thumbnails: product.thumbnails,
             stock: product.stock,
             discounts: product.discounts,
             brand: product.brand,

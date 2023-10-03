@@ -2,12 +2,15 @@ import ItemCount from "./ItemCount";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemGalery from './ItemGalery';
+import useGetCategoryName from "../../hooks/useGetCategoryName";
 
 const Item = ({ props }) => {
-    const { id, title, description, price, pictureUrl, images, video, stock, brand, category } = props;
+    const { id, title, description, price, thumbnails, stock, brand, category, context } = props;
 
     const [showDialog, setShowDialog] = useState(false);
     const [qty, setQuatity] = useState(0);
+
+    const categoryName = useGetCategoryName({ id: category, list: props.context.store.categories });
 
     const onAdd = ({ qty: newValue, data }) => {
         console.log({ qty: newValue, data });
@@ -21,28 +24,25 @@ const Item = ({ props }) => {
     return (<>
         <section className="text-gray-700 bg-white/60">
             <div className="w-full px-5 py-24 mx-auto">
-                <span className="top-0 left-0 z-50 w-auto px-3 py-1 text-xs text-white abolute rounded-xl budge bg-amber-900/80">
-                    {category}
-                </span>
+                <div className="flex px-3 py-3 text-xs text-white w-fit bg-amber-900/80">
+                    {categoryName}
+                </div>
                 <div className="sm:flex sm:columns-2">
                     <div className="relative w-full sm:w-1/2 aspect-square">
-                        <ItemGalery pictureUrl={pictureUrl} images={images} video={video}></ItemGalery>
+                        <ItemGalery thumbnails={thumbnails}></ItemGalery>
                     </div>
                     <div className="w-full mt-6 sm:w-auto sm:pl-10 sm:py-6 sm:mt-0">
-                        <h2 className="text-sm tracking-widest text-gray-500 title-font">
-                            {brand}
-                        </h2>
-                        <h1 className="mb-1 text-3xl font-medium text-gray-900 title-font">
+                        <h1 className="mb-12 text-5xl font-bold text-purple-600 font-title">
                             {title}
                         </h1>
-
                         <p className="leading-relaxed">
                             {description}
                         </p>
                         <div className="flex mt-9">
                             <span className="text-5xl font-medium text-gray-900 font-title">$ {price}</span>
                         </div>
-                        <div className="flex mt-9">
+                        <div className="mt-9">
+                            <div className="mb-3 text-xs">Cupos Disponibles: <b className="text-base">{stock}</b></div>
                             <ItemCount id={id} stock={stock} initial={1} data={props} onAdd={onAdd} />
                         </div>
                         <hr className="h-8" />
@@ -75,12 +75,12 @@ const Item = ({ props }) => {
             </div>
         </section >
         {showDialog ? <div>
-            < div onClick={dialogClose} className='fixed top-0 bottom-0 left-0 right-0 z-40 w-screen h-screen bg-white/50' ></div >
+            < div onClick={dialogClose} className='fixed top-0 bottom-0 left-0 right-0 z-40 w-screen h-screen bg-purple-800/70' ></div >
             <div className='fixed top-0 bottom-0 left-0 right-0 z-50 w-screen h-screen pointer-events-none'>
-                <section className="absolute z-50 w-auto max-w-full mx-auto overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl pointer-events-auto sm:max-w-md top-1/4 left-1/2">
-                    <div onClick={dialogClose} className='absolute w-6 h-6 text-3xl font-light cursor-pointer close right-2'>x</div>
-                    <div className="p-4 text-center sm:p-6 lg:p-8">
-                        <div className="mb-3 text-base font-semibold tracking-widest text-gray-400 uppercase">Agregaste al carrito</div>
+                <section className="absolute z-50 w-full max-w-full mx-auto overflow-hidden -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl pointer-events-auto sm:max-w-md top-1/4 left-1/2">
+                    <div onClick={dialogClose} className='absolute w-6 h-6 text-6xl font-light cursor-pointer close right-6'>x</div>
+                    <div className="p-8 text-center sm:p-10 lg:p-16">
+                        <div className="mb-3 text-base font-semibold tracking-widest text-gray-600 uppercase">Agregaste al carrito</div>
                         <p className="text-xl font-semibold tracking-widest text-purple-400 uppercase">
                             <b className="text-2xl">({qty})</b> - {title}
                         </p>

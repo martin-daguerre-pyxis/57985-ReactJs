@@ -8,16 +8,12 @@ import Checkout from "./page/Checkout";
 import Login from "./page/Login";
 
 const App = () => {
-
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route
-            path="/category/:categoryId/:slug"
-            element={<Category />}
-          ></Route>
+          <Route path="/category/:categoryId/:slug" element={<Category />}></Route>
           <Route path="/item/:itemId/:slug" element={<ProductDetail />}></Route>
           <Route exact path="/cart" element={<Cart />}></Route>
           <Route exact path="/checkout" element={<Checkout />}></Route>

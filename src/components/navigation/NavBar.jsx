@@ -1,6 +1,7 @@
 import NavBarLink from './NavBarLink';
+//import FlyoutCategories from './FlyoutCategories';
 
-const NavBar = ({ children, location }) => {
+const NavBar = ({ children, location, categories=[] }) => {
 
     let styleNav = ' flex flex-col flex-wrap items-center w-full lg:flex-row lg:w-auto justify-items-stretch ';
     let styleLink = ' text-base px-4 ';
@@ -29,9 +30,15 @@ const NavBar = ({ children, location }) => {
     return (<>
         <nav className={styleNav}>
             <NavBarLink styleLink={styleLink} styleSelected={selected} href="/" selected={true}>Inicio</NavBarLink>
-            <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/1/Talleres-caballos">Talleres con Caballos</NavBarLink>
-            <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/2/Practicas-de-yoga">Practicas de Yoga</NavBarLink>
-            <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/3/Velas-y-jabones">Velas y Jabones artesanales</NavBarLink>
+            {/* <FlyoutCategories styleLink={styleLink} styleSelected={selected} /> */}
+
+            {categories.map((cat) => (
+                <NavBarLink key={cat.id} styleLink={styleLink} styleSelected={selected} href={`/category/${cat.id}/${cat.category}`}>{cat.category}</NavBarLink>
+            ))}
+
+            {/* <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/1/Escritorios">Escritorios</NavBarLink>
+            <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/2/Alfombras">Alfombras</NavBarLink>
+            <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/2/Accesorios%20deportivos">Accesorios deportivos</NavBarLink> */}
             {children}
         </nav>
     </>);

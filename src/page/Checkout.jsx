@@ -1,11 +1,15 @@
 import DefaultLayout from "../layouts/default.layout";
-import ItemListContainer from '../components/products/ItemListContainer';
 import withAuth from '../hocs/withAuth';
+import ShippingCart from '../components/cart/ShippingCart';
 
 const Checkout = (props) => {
+  const context = {
+    auth: props.auth,
+    store: props.store
+  };
   return (
-    <DefaultLayout auth={props.auth} store={props.store} className="flex flex-col justify-around flex-grow layout_home-page font-body">
-      <ItemListContainer></ItemListContainer>
+    <DefaultLayout context={context} className="flex flex-col justify-around flex-grow layout_home-page font-body">
+      <ShippingCart context={context}></ShippingCart>
     </DefaultLayout>
   )
 }

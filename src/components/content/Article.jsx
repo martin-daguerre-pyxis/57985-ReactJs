@@ -11,7 +11,7 @@ const Article = ({ children, picture, pictureClass, title, description, link, cl
                     {children}
                 </div>
                 <a className="inline-block text-center sm:float-right" href={link} title={title}>
-                    <figure className={pictureClass + " mx-auto overflow-hidden w-60 sm:w-96 rounded-3xl"}>
+                    <figure className={pictureClass + " mx-auto overflow-hidden"}>
                         <img src={picture} className="object-cover w-full" alt={title} />
                     </figure>
                 </a>

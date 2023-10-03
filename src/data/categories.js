@@ -1,26 +1,14 @@
 export const categories = [
   {
     id: 1,
-    category: "Talleres",
+    category: "Escritorios",
   },
   {
-    id: 1,
-    category: "Yoga",
+    id: 2,
+    category: "Alfombras",
   },
   {
     id: 3,
-    category: "Caballos",
-  },
-  {
-    id: 4,
-    category: "Canelones",
-  },
-  {
-    id: 5,
-    category: "Cursos",
-  },
-  {
-    id: 6,
-    category: "Montevideo",
-  },
+    category: "Accesorios deportivos",
+  }
 ];

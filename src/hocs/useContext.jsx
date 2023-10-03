@@ -1,11 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// import GetDataProducts from '../data/GetDataProducts';
+import GetDataCategories from '../data/GetDataCategories';
 
 const useContext = () => {
   const [categories, setCategories] = useState([]);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-  return { categories, products, cart, setCategories, setProducts, setCart };
+  useEffect(() => {
+    // GetDataProducts().then(products => {
+    //   setProducts(products);
+    // });
+    GetDataCategories().then(categories => {
+      setCategories(categories);
+    });
+    setCart(localStorage.getItem(cart));
+
+  }, []);
+
+  useEffect(() => {
+    setCart(localStorage.getItem(cart));
+  }, [cart]);
+
+  return { categories, cart, setCategories, setCart };
 };
 
 export default useContext;
