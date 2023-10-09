@@ -3,7 +3,7 @@ import ShippingCart from './ShippingCart';
 
 const CartWidget = ({ context }) => {
     return (<>
-        <ShippingCart context={context} Show={false} asPage={false}></ShippingCart>
+        <ShippingCart Show={false} asPage={false}></ShippingCart>
     </>);
 }
 

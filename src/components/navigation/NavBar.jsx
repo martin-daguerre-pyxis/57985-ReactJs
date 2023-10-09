@@ -1,7 +1,15 @@
 import NavBarLink from './NavBarLink';
-//import FlyoutCategories from './FlyoutCategories';
+import { useEffect, useState, useContext } from 'react';
+import { NavContext } from '../../contexts/nav.context';
 
-const NavBar = ({ children, location, categories=[] }) => {
+const NavBar = ({ children, location }) => {
+    const [categories, setCategories] = useState([]);
+
+    const categoriesData = useContext(NavContext);
+
+    useEffect(() => {
+        setCategories(categoriesData);
+    }, [categoriesData]);
 
     let styleNav = ' flex flex-col flex-wrap items-center w-full lg:flex-row lg:w-auto justify-items-stretch ';
     let styleLink = ' text-base px-4 ';
@@ -30,15 +38,9 @@ const NavBar = ({ children, location, categories=[] }) => {
     return (<>
         <nav className={styleNav}>
             <NavBarLink styleLink={styleLink} styleSelected={selected} href="/" selected={true}>Inicio</NavBarLink>
-            {/* <FlyoutCategories styleLink={styleLink} styleSelected={selected} /> */}
-
-            {categories.map((cat) => (
-                <NavBarLink key={cat.id} styleLink={styleLink} styleSelected={selected} href={`/category/${cat.id}/${cat.category}`}>{cat.category}</NavBarLink>
+            {categories && categories.map(category => (
+                <NavBarLink key={category.id} styleLink={styleLink} styleSelected={selected} href={`/category/${category.id}/${category.category}`}>{category.category}</NavBarLink>
             ))}
-
-            {/* <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/1/Escritorios">Escritorios</NavBarLink>
-            <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/2/Alfombras">Alfombras</NavBarLink>
-            <NavBarLink styleLink={styleLink} styleSelected={selected} href="/category/2/Accesorios%20deportivos">Accesorios deportivos</NavBarLink> */}
             {children}
         </nav>
     </>);

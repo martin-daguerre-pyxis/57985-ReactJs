@@ -5,12 +5,9 @@ import withAuth from '../hocs/withAuth';
 import { Link } from 'react-router-dom';
 
 const Login = (props) => {
-  const context = {
-    auth: props.auth,
-    store: props.store
-  };
+
   return (
-    <DefaultLayout context={context} className="flex flex-col justify-around flex-grow layout_home-page font-body">
+    <DefaultLayout className="flex flex-col justify-around flex-grow layout_home-page font-body">
       <Article title=" "
         picture={`${publicUrl}comming.svg`} pictureClass=" w-[90vw] lg:w-[40vw]">
         <div className="mb-2 text-5xl font-bold text-purple-700 font-dark">Login / Registro</div>

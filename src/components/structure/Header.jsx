@@ -1,12 +1,31 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import { useContext, useEffect, useState } from 'react';
 import NavBar from '../navigation/NavBar';
-import NavBarLink from '../navigation/NavBarLink';
 import CartWidget from '../cart/CartWidget';
 import publicUrl from '../../utils';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth.context';
 
-const Header = ({ isAuthenticated, children, context }) => {
+const Header = ({ children }) => {
+    // const [Auth, setAuth] = useState({});
+    const isAuthenticated = false; // Auth ? true : false;
+    // const authContext = useContext(AuthContext);
+
+    // console.log('Auth: ', Auth);
+    // console.log('authContext: ', authContext);
+
+    // useEffect(() => {
+    //     setAuth(authContext);
+    // }, [Auth, authContext]);
+
+    // if (Auth.role.name === 'ANONYMOUS') {
+
+    // } else if (Auth.role.name === 'DBUSER') {
+
+    // } else if (Auth.role.name === 'ADMIN') {
+
+    // } else {
+    //     Auth.role.name = 'ANONYMOUS';
+    // }
 
     return (
         <>
@@ -29,7 +48,7 @@ const Header = ({ isAuthenticated, children, context }) => {
 
                     <div className="flex-grow hidden w-full lg:flex lg:items-center lg:w-auto" id="menu">
                         <div className="flex justify-center text-sm lg:flex-grow">
-                            <NavBar categories={context.store.categories} location="header"></NavBar>
+                            {/* <NavBar location="header"></NavBar> */}
                         </div>
                         <div className="flex">
                             {isAuthenticated ? <>
@@ -58,7 +77,7 @@ const Header = ({ isAuthenticated, children, context }) => {
                                     <Link to="/login" className="block px-8 pt-3 pb-3 text-lg text-white font-title lg:text-xl">Login / Registro</Link>
                                 </div>
                             </>}
-                            <CartWidget context={context}></CartWidget>
+                            <CartWidget></CartWidget>
                         </div>
                     </div>
                 </nav>
@@ -68,8 +87,4 @@ const Header = ({ isAuthenticated, children, context }) => {
     )
 }
 
-Header.propTypes = {
-    children: PropTypes.any
-}
-
-export default Header
+export default Header;

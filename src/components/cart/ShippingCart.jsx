@@ -3,7 +3,7 @@ import { ItemCount } from '../products/ItemCount';
 import IconTrash from '../icons/IconTrash';
 import ItemCart from './ItemCart';
 
-const ShippingCart = ({ Show = false, asPage, context }) => {
+const ShippingCart = ({ Show = false, asPage }) => {
     const [show, setShow] = useState(Show);
     const page = asPage ? asPage : false;
     // const [cart, setCart] = useState([]);

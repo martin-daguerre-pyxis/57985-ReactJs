@@ -1,15 +1,17 @@
 import ItemCount from "./ItemCount";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import publicUrl from "../../utils";
 import useGetCategoryName from "../../hooks/useGetCategoryName";
+import { NavContext } from '../../contexts/nav.context';
 
 const ItemList = ({ props }) => {
-    const { id, title, description, price, thumbnails, stock, category, addToCart, context } = props;
+    const { id, title, description, price, thumbnails, stock, category } = props;
     const [showDialog, setShowDialog] = useState(false);
     const [qty, setQuatity] = useState(0);
 
-    const categoryName = useGetCategoryName({ id: category, list: context.store.categories });
+    const categories = useContext(NavContext);
+    const categoryName = useGetCategoryName({ id: category, list: categories });
 
     const onAdd = ({ qty: newValue, data }) => {
         console.log({ qty: newValue, data });

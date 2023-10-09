@@ -18,13 +18,9 @@ const ProductDetail = (props) => {
   const addToCart = () => {
 
   }
-  const context = {
-    auth: props.auth,
-    store: props.store
-  };
 
   if (!product) return (<>
-    <DefaultLayout context={context} 
+    <DefaultLayout
       className="flex flex-col justify-around flex-grow layout_home-page font-body">
       <div className="container flex flex-row flex-wrap justify-center gap-3 mx-auto mt-16 mb-16 lg:gap-6 columns-2 lg:columns-3">
         <div className="text-center">
@@ -43,7 +39,7 @@ const ProductDetail = (props) => {
   );
 
   return (<>
-    <DefaultLayout context={context} 
+    <DefaultLayout 
       className="flex flex-col justify-around flex-grow font-body">
       <div className="container mx-auto">
 
@@ -51,7 +47,6 @@ const ProductDetail = (props) => {
           key={product.id}
           addToCart={addToCart}
           props={{
-            context,
             id: product.id,
             title: product.title,
             description: product.description,

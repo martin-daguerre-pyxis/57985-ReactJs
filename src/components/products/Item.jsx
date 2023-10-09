@@ -1,16 +1,15 @@
 import ItemCount from "./ItemCount";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ItemGalery from './ItemGalery';
 import useGetCategoryName from "../../hooks/useGetCategoryName";
+import { NavContext } from "../../contexts/nav.context";
 
-const Item = ({ props }) => {
-    const { id, title, description, price, thumbnails, stock, brand, category, context } = props;
-
+const Item = ({ id, title, description, price, thumbnails, stock, category }) => {
     const [showDialog, setShowDialog] = useState(false);
     const [qty, setQuatity] = useState(0);
-
-    const categoryName = useGetCategoryName({ id: category, list: props.context.store.categories });
+    const categories = useContext(NavContext);
+    const categoryName = useGetCategoryName({ id: category, list: categories });
 
     const onAdd = ({ qty: newValue, data }) => {
         console.log({ qty: newValue, data });
@@ -43,7 +42,7 @@ const Item = ({ props }) => {
                         </div>
                         <div className="mt-9">
                             <div className="mb-3 text-xs">Cupos Disponibles: <b className="text-base">{stock}</b></div>
-                            <ItemCount id={id} stock={stock} initial={1} data={props} onAdd={onAdd} />
+                            <ItemCount id={id} stock={stock} initial={1} data={{ title, description, price, thumbnails, stock }} onAdd={onAdd} />
                         </div>
                         <hr className="h-8" />
 
