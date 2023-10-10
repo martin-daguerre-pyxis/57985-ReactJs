@@ -11,9 +11,10 @@ const ProductDetail = (props) => {
 
   useEffect(() => {
     GetDataProduct(itemId).then(productsData => {
+      console.log(productsData);
       setProduct(productsData);
     });
-  }, []);
+  }, [itemId]);
 
   const addToCart = () => {
 
@@ -44,9 +45,7 @@ const ProductDetail = (props) => {
       <div className="container mx-auto">
 
         <Item
-          key={product.id}
-          addToCart={addToCart}
-          props={{
+          product={{
             id: product.id,
             title: product.title,
             description: product.description,

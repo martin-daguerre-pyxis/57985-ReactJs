@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
 
 export const StructureContext = createContext();
 
@@ -24,3 +24,4 @@ export const StructureProvider = ({ children }) => {
         </StructureContext.Provider>
     );
 }
+export const useStructure = () => useContext(StructureContext);

@@ -1,11 +1,10 @@
 import NavBarLink from './NavBarLink';
-import { useEffect, useState, useContext } from 'react';
-import { NavContext } from '../../contexts/nav.context';
+import { useEffect, useState } from 'react';
+import { useNav } from '../../contexts/nav.context';
 
 const NavBar = ({ children, location }) => {
     const [categories, setCategories] = useState([]);
-
-    const categoriesData = useContext(NavContext);
+    const categoriesData = useNav().categories;
 
     useEffect(() => {
         setCategories(categoriesData);

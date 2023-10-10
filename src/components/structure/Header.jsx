@@ -48,7 +48,7 @@ const Header = ({ children }) => {
 
                     <div className="flex-grow hidden w-full lg:flex lg:items-center lg:w-auto" id="menu">
                         <div className="flex justify-center text-sm lg:flex-grow">
-                            {/* <NavBar location="header"></NavBar> */}
+                            <NavBar location="header"></NavBar>
                         </div>
                         <div className="flex">
                             {isAuthenticated ? <>

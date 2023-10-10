@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import { createContext } from "react";
+import { createContext, useState, useEffect, useContext } from 'react';
 
 export const UserContext = createContext();
 
-const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({ nickName: 'Anonymous' });
 
     useEffect(() => {
@@ -27,6 +26,4 @@ const UserProvider = ({ children }) => {
         </UserContext.Provider>
     );
 };
-
-
-export default UserProvider;
+export const useUser = () => useContext(UserContext);

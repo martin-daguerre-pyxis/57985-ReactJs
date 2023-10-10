@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+
 import GetDataCategories from "../data/GetDataCategories";
 
 export const NavContext = createContext();
@@ -26,3 +27,13 @@ export const NavProvider = ({ children }) => {
         </NavContext.Provider>
     );
 }
+export const useNav = () => useContext(NavContext);
+
+export const useGetCategoryName = ({ id = 0 }) => {
+    const list = useNav().categories;
+    if (id) {
+      const categoryData = list.find(data => data.id == id);
+      const name = categoryData ? categoryData.category : null;
+      return name;
+    }
+  };

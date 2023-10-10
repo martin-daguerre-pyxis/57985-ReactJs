@@ -11,12 +11,14 @@ const GetDataCategories = (id) => {
     //     .catch(err => console.log(err));
 
     // Emulo una petición a una API
-    if (id) {
-      const res = categories.find(data => data.id == id);
-      resolve(res);
-    } else {
-      resolve(categories);
-    }
+    setTimeout(() => {
+      if (id) {
+        const res = categories.find(data => data.id == id);
+        resolve(res);
+      } else {
+        resolve(categories);
+      }
+    }, 500); // Simulamos un retraso...
   });
 }
 

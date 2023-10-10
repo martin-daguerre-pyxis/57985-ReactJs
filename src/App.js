@@ -6,19 +6,19 @@ import Category from "./page/Category";
 import Cart from "./page/Cart";
 import Checkout from "./page/Checkout";
 import Login from "./page/Login";
-import { CartContext } from "./contexts/cart.context";
-import { AuthContext } from "./contexts/auth.context";
-import { StructureContext } from "./contexts/structure.context";
-import { NavContext } from "./contexts/nav.context";
-import { UserContext } from "./contexts/user.context";
+import { CartProvider } from "./contexts/cart.context";
+import { AuthProvider } from "./contexts/auth.context";
+import { StructureProvider } from "./contexts/structure.context";
+import { NavProvider } from "./contexts/nav.context";
+import { UserProvider } from "./contexts/user.context";
 
 const App = () => {
   return (
-    <AuthContext.Provider>
-      <UserContext.Provider>
-        <StructureContext.Provider>
-          <NavContext.Provider>
-            <CartContext.Provider>
+    <AuthProvider>
+      <UserProvider>
+        <StructureProvider>
+          <NavProvider>
+            <CartProvider>
               <BrowserRouter>
                 <Routes>
                   <Route exact path="/" element={<Home />}></Route>
@@ -36,11 +36,11 @@ const App = () => {
                   <Route path="*" element={<Error404 />}></Route>
                 </Routes>
               </BrowserRouter>
-            </CartContext.Provider>
-          </NavContext.Provider>
-        </StructureContext.Provider>
-      </UserContext.Provider>
-    </AuthContext.Provider>
+            </CartProvider>
+          </NavProvider>
+        </StructureProvider>
+      </UserProvider>
+    </AuthProvider>
   );
 };
 

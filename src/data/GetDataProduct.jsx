@@ -2,19 +2,23 @@
 import { products } from './products';
 
 const GetDataProduct = (id) => {
-  
+
   return new Promise((resolve, reject) => {
+
+    // fetch('http://localhost:3000/api/categories')
+    //     .then(res => res.json())
+    //     .then(data => setCategories(data))
+    //     .catch(err => console.log(err));
+
     // Emulo una petición a una API
     setTimeout(() => {
-      // console.log(id);
       if (id) {
         const res = products.data.find(data => data.id == id);
-        // console.log(res);
         resolve(res);
       } else {
         resolve(products.data);
       }
-    }, 2000); // Simulamos un retraso...
+    }, 500); // Simulamos un retraso...
   });
 }
 
