@@ -1,7 +1,7 @@
 export const products = {
   data: [
     {
-      "id": 1,
+      "id": 'ba36b7b4-677d-11ee-8c99-0242ac120002',
       "title": "Escritorio infantil",
       "description": "Escritorio diseñado especialmente para niños",
       "code": "ESC004",
@@ -12,7 +12,7 @@ export const products = {
       "thumbnails": ["escritorio4_1.jpg", "escritorio4_2.jpg"]
     },
     {
-      "id": 2,
+      "id": 'ba36bae8-677d-11ee-8c99-0242ac120002',
       "title": "Escritorio con repisas",
       "description": "Escritorio con repisas adicionales para organizar tus libros",
       "code": "ESC008",
@@ -23,7 +23,7 @@ export const products = {
       "thumbnails": ["escritorio8_1.jpg", "escritorio8_2.jpg"]
     },
     {
-      "id": 3,
+      "id": 'ba36bcf4-677d-11ee-8c99-0242ac120002',
       "title": "Escritorio minimalista",
       "description": "Escritorio con diseño minimalista y funcional",
       "code": "ESC009",
@@ -37,7 +37,7 @@ export const products = {
       ]
     },
     {
-      "id": 4,
+      "id": 'ba36bea0-677d-11ee-8c99-0242ac120002',
       "title": "Alfombra de yute",
       "description": "Estilo natural y ecológico para tu espacio",
       "code": "ALF006",
@@ -92,7 +92,7 @@ export const products = {
       "thumbnails": ["escritorio2_1.jpg", "escritorio2_2.jpg"]
     },
     {
-      "id": 9,
+      "id": 'ba36b9a0-677d-11ee-8c99-0242ac120002',
       "title": "Escritorio con cajones",
       "description": "Escritorio con amplios cajones para organizar tus objetos",
       "code": "ESC006",
@@ -114,7 +114,7 @@ export const products = {
       "thumbnails": ["alfombra7_1.jpg", "alfombra7_2.jpg"]
     },
     {
-      "id": 11,
+      "id": 'ba36bbf2-677d-11ee-8c99-0242ac120002',
       "title": "Toalla deportiva",
       "description": "Toalla absorbente para uso durante el ejercicio",
       "code": "ACC009",
@@ -125,7 +125,7 @@ export const products = {
       "thumbnails": ["accesorio9_1.jpg", "accesorio9_2.jpg"]
     },
     {
-      "id": 12,
+      "id": 'ba36b8a8-677d-11ee-8c99-0242ac120002',
       "title": "Alfombra de pelo largo",
       "description": "Pelo largo y suave para una sensación de comodidad",
       "code": "ALF003",
@@ -136,7 +136,7 @@ export const products = {
       "thumbnails": ["alfombra3_1.jpg", "alfombra3_2.jpg"]
     },
     {
-      "id": 13,
+      "id": 'ba36b9f2-677d-11ee-8c99-0242ac120002',
       "title": "Alfombra moderna",
       "description": "Diseño moderno y elegante para tu hogar",
       "code": "ALF002",
@@ -147,7 +147,7 @@ export const products = {
       "thumbnails": ["alfombra2_1.jpg", "alfombra2_2.jpg"]
     },
     {
-      "id": 14,
+      "id": 'ba36b8f4-677d-11ee-8c99-0242ac120002',
       "title": "Guantes de boxeo",
       "description": "Guantes de boxeo profesionales",
       "code": "ACC005",
@@ -158,7 +158,7 @@ export const products = {
       "thumbnails": ["accesorio5_1.jpg", "accesorio5_2.jpg"]
     },
     {
-      "id": 15,
+      "id": 'ba36b9b4-677d-11ee-8c99-0242ac120002',
       "title": "Pelota de baloncesto",
       "description": "Pelota de baloncesto oficial",
       "code": "ACC003",
@@ -169,7 +169,7 @@ export const products = {
       "thumbnails": ["accesorio3_1.jpg", "accesorio3_2.jpg"]
     },
     {
-      "id": 16,
+      "id": 'ba36b9d4-677d-11ee-8c99-0242ac120002',
       "title": "Balón de fútbol",
       "description": "Balón de fútbol de alta calidad",
       "code": "ACC001",
@@ -180,7 +180,7 @@ export const products = {
       "thumbnails": ["accesorio1_1.jpg", "accesorio1_2.jpg"]
     },
     {
-      "id": 17,
+      "id": 'df452f03-596f-4596-83fa-6a494b5d6fe0',
       "title": "Balón de fútbol 3",
       "description": "Balón de fútbol de alta calidad",
       "code": "ACC0013",
@@ -191,7 +191,7 @@ export const products = {
       "thumbnails": ["accesorio1_1.jpg", "accesorio1_2.jpg"]
     },
     {
-      "id": 18,
+      "id": 'ba36b9e8-677d-11ee-8c99-0242ac120002',
       "title": "Escritorio de madera maciza",
       "description": "Escritorio elegante y resistente hecho de madera maciza",
       "code": "ESC001",
@@ -202,7 +202,7 @@ export const products = {
       "thumbnails": ["escritorio1_1.jpg", "escritorio1_2.jpg"]
     },
     {
-      "id": 19,
+      "id": 'b40cca5d-dbf1-4691-9b69-3372c00d4940',
       "title": "Escritorio de vidrio",
       "description": "Escritorio elegante con superficie de vidrio",
       "code": "ESC005",
@@ -213,7 +213,7 @@ export const products = {
       "thumbnails": ["escritorio5_1.jpg", "escritorio5_2.jpg"]
     },
     {
-      "id": 20,
+      "id": '930289ce-a04e-4f19-bb48-32f19d02c67c',
       "title": "Escritorio ajustable en altura",
       "description": "Escritorio que se ajusta fácilmente a diferentes alturas",
       "code": "ESC007",
@@ -224,7 +224,7 @@ export const products = {
       "thumbnails": ["escritorio7_1.jpg", "escritorio7_2.jpg"]
     },
     {
-      "id": 21,
+      "id": 'ba36b9e8-677d-11ee-8c99-0242ac120002',
       "title": "Escritorio con esquinero",
       "description": "Escritorio en forma de L con espacio adicional en el esquinero",
       "code": "ESC010",
@@ -235,7 +235,7 @@ export const products = {
       "thumbnails": ["escritorio10_1.jpg", "escritorio10_2.jpg"]
     },
     {
-      "id": 22,
+      "id": '28a83d6e-a6b9-4456-bbbc-d8448b5468d5',
       "title": "Alfombra de exterior",
       "description": "Resistente al clima y perfecta para espacios al aire libre",
       "code": "ALF010",
@@ -246,7 +246,7 @@ export const products = {
       "thumbnails": ["alfombra10_1.jpg", "alfombra10_2.jpg"]
     },
     {
-      "id": 23,
+      "id": 'ba36b9e8-677d-11ee-8c99-0242ac120002',
       "title": "Alfombra reversible",
       "description": "Dos opciones en una para mayor versatilidad",
       "code": "ALF009",
@@ -257,7 +257,7 @@ export const products = {
       "thumbnails": ["alfombra9_1.jpg", "alfombra9_2.jpg"]
     },
     {
-      "id": 24,
+      "id": '3e07c110-6e40-497a-9030-8965dc206387',
       "title": "Alfombra estampada",
       "description": "Patrones únicos y coloridos para realzar tu decoración",
       "code": "ALF008",
@@ -268,7 +268,7 @@ export const products = {
       "thumbnails": ["alfombra8_1.jpg", "alfombra8_2.jpg"]
     },
     {
-      "id": 25,
+      "id": '6d7c1097-8dcb-4226-baec-ae25e1b0a214',
       "title": "Alfombra infantil",
       "description": "Divertido diseño para la habitación de los niños",
       "code": "ALF004",
@@ -279,7 +279,7 @@ export const products = {
       "thumbnails": ["alfombra4_1.jpg", "alfombra4_2.jpg"]
     },
     {
-      "id": 26,
+      "id": '4a50a789-132d-4d31-afcb-8230e254902e',
       "title": "Rodilleras deportivas",
       "description": "Rodilleras para protección y soporte durante el deporte",
       "code": "ACC010",
@@ -290,7 +290,7 @@ export const products = {
       "thumbnails": ["accesorio10_1.jpg", "accesorio10_2.jpg"]
     },
     {
-      "id": 27,
+      "id": '660c4765-31bf-41d6-bb8d-07ba3454be9f',
       "title": "Muñequeras deportivas",
       "description": "Muñequeras para apoyo y protección durante el deporte",
       "code": "ACC007",
@@ -301,7 +301,7 @@ export const products = {
       "thumbnails": ["accesorio7_1.jpg", "accesorio7_2.jpg"]
     },
     {
-      "id": 28,
+      "id": '7ad70888-5cd8-4da0-944e-e5383d343ce2',
       "title": "Banda elástica de resistencia",
       "description": "Banda elástica para entrenamiento de resistencia",
       "code": "ACC006",
@@ -312,7 +312,7 @@ export const products = {
       "thumbnails": ["accesorio6_1.jpg", "accesorio6_2.jpg"]
     },
     {
-      "id": 29,
+      "id": '0dd7a308-04ce-4bf8-a625-1adabcf32ba8',
       "title": "Cuerda de saltar",
       "description": "Cuerda de saltar ajustable para entrenamiento",
       "code": "ACC004",
@@ -323,7 +323,7 @@ export const products = {
       "thumbnails": ["accesorio4_1.jpg", "accesorio4_2.jpg"]
     },
     {
-      "id": 30,
+      "id": 'abd58e15-6b84-430d-b788-8a87289de566',
       "title": "Raqueta de tenis",
       "description": "Raqueta de tenis profesional",
       "code": "ACC002",
@@ -334,7 +334,7 @@ export const products = {
       "thumbnails": ["accesorio2_1.jpg", "accesorio2_2.jpg"]
     },
     {
-      "id": 31,
+      "id": 'e5439b5d-d7b7-40ee-a2b0-5120235524e4',
       "title": "Balón de fútbol x2",
       "description": "Balón de fútbol de alta calidad",
       "code": "ACC001-2",
