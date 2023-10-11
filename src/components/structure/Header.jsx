@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
 import NavBar from '../navigation/NavBar';
 import CartWidget from '../cart/CartWidget';
 import publicUrl from '../../utils';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../contexts/auth.context';
 
 const Header = ({ children }) => {
     // const [Auth, setAuth] = useState({});

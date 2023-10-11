@@ -14,7 +14,7 @@ const LoginForm = () => {
                 </div>
             </div>
             <div className="flex items-center justify-between mb-6">
-                <Link href="#/login" 
+                <Link to="/login" 
                 className="transition duration-150 ease-in-out text-primary hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
                 >Forgot password?</Link>
             </div>

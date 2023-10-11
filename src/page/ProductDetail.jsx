@@ -16,10 +16,6 @@ const ProductDetail = (props) => {
     });
   }, [itemId]);
 
-  const addToCart = () => {
-
-  }
-
   if (!product) return (<>
     <DefaultLayout
       className="flex flex-col justify-around flex-grow layout_home-page font-body">

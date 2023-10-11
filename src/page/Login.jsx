@@ -2,7 +2,6 @@ import DefaultLayout from "../layouts/default.layout";
 import publicUrl from '../utils';
 import Article from '../components/content/Article';
 import withAuth from '../hocs/withAuth';
-import { Link } from 'react-router-dom';
 import LoginForm from '../components/content/LoginForm';
 
 const Login = (props) => {
