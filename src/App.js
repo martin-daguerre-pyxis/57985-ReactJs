@@ -13,6 +13,8 @@ import { NavProvider } from "./contexts/nav.context";
 import { UserProvider } from "./contexts/user.context";
 
 const App = () => {
+  //const [state, setListBook] = useState({ ListBook:[], name:'', edition:'', id:'', bandera:true });
+
   return (
     <AuthProvider>
       <UserProvider>
@@ -23,7 +25,7 @@ const App = () => {
                 <Routes>
                   <Route exact path="/" element={<Home />}></Route>
                   <Route
-                    path="/category/:categoryId/:slug"
+                    path="/category/:slug"
                     element={<Category />}
                   ></Route>
                   <Route

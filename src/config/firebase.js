@@ -1,19 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore";
 
-/******************************************************/
-/******************************************************/
-
-//   https://curso-1589d.web.app/
-
-/******************************************************/
-/******************************************************/
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBOzq5x8AHbYc5BsQDwB5O1WyJqqwIcckI",
   authDomain: "curso-1589d.firebaseapp.com",
@@ -22,9 +9,20 @@ const firebaseConfig = {
   storageBucket: "curso-1589d.appspot.com",
   messagingSenderId: "850941432083",
   appId: "1:850941432083:web:6729bd64278b2c9685cae6",
-  measurementId: "G-KNXR5XBLMD"
+  measurementId: "G-KNXR5XBLMD",
 };
 
-// Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
+// const firebaseConfig = {
+//   apiKey: process.env.FIREBASE_API_KEY,
+//   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+//   databaseURL: process.env.FIREBASE_DATABASE_URL,
+//   projectId: process.env.FIREBASE_PROJECT_ID,
+//   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+//   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+//   appId: process.env.FIREBASE_APP_ID,
+//   measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+// };
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);

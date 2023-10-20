@@ -2,19 +2,25 @@ import DefaultLayout from "../layouts/default.layout";
 import Item from '../components/products/Item';
 import withAuth from '../hocs/withAuth';
 import { useEffect, useState } from 'react';
-import GetDataProduct from '../data/GetDataProduct';
 import { Link, useParams } from 'react-router-dom';
+import productsDataServiceInstance from '../services/products';
 
 const ProductDetail = (props) => {
   const [product, setProduct] = useState(null);
   const { itemId, slug } = useParams();
 
   useEffect(() => {
-    GetDataProduct(itemId).then(productsData => {
-      console.log(productsData);
-      setProduct(productsData);
-    });
-  }, [itemId]);
+    const fetchData = async () => {
+        try {
+            const querySnapshot = await productsDataServiceInstance.getItem(itemId);
+            const itemList = querySnapshot.data();
+            setProduct(itemList);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    fetchData();
+}, [itemId, slug]);
 
   if (!product) return (<>
     <DefaultLayout

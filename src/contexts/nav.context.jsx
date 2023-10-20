@@ -1,22 +1,27 @@
 import { createContext, useEffect, useState, useContext } from "react";
-
-import GetDataCategories from "../data/GetDataCategories";
+import categoriesDataServiceInstance from '../services/categories';
 
 export const NavContext = createContext();
 
 export const NavProvider = ({ children }) => {
-
-    const [categories, setCategories] = useState([
-        { id: 1, name: 'Cargando...' },
-        { id: 2, name: 'Categoria 2' },
-        { id: 3, name: 'Categoria 3' }
-    ]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        GetDataCategories().then(data => {
-            setCategories(data);
-        });
+        const fetchData = async () => {
+            try {
+                const querySnapshot = await categoriesDataServiceInstance.getAllItems();
+                const itemList = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setCategories(itemList);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchData();
     }, []);
+
 
     return (
         <NavContext.Provider value={{
@@ -32,8 +37,9 @@ export const useNav = () => useContext(NavContext);
 export const useGetCategoryName = ({ id = 0 }) => {
     const list = useNav().categories;
     if (id) {
-      const categoryData = list.find(data => data.id === id);
-      const name = categoryData ? categoryData.category : null;
-      return name;
+        // eslint-disable-next-line eqeqeq
+        const categoryData = list.find(data => data.id == id);
+        const name = categoryData ? categoryData.category : null;
+        return name;
     }
-  };
+};

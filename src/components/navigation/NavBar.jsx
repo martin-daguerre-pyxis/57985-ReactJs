@@ -38,7 +38,7 @@ const NavBar = ({ children, location }) => {
         <nav className={styleNav}>
             <NavBarLink styleLink={styleLink} styleSelected={selected} href="/" selected={true}>Inicio</NavBarLink>
             {categories && categories.map(category => (
-                <NavBarLink key={category.id} styleLink={styleLink} styleSelected={selected} href={`/category/${category.id}/${category.category}`}>{category.category}</NavBarLink>
+                <NavBarLink key={category.id} styleLink={styleLink} styleSelected={selected} href={`/category/${category.key}`}>{category.category}</NavBarLink>
             ))}
             {children}
         </nav>

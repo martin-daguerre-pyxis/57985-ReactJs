@@ -9,7 +9,7 @@ const Login = (props) => {
   return (
     <DefaultLayout className="flex flex-col justify-around flex-grow layout_home-page font-body">
       <Article title=" "
-        picture={`${publicUrl}comming.svg`} pictureClass=" w-[30vw] lg:w-[30vw]">
+        picture={`${publicUrl}login.svg`} pictureClass=" w-[30vw] lg:w-[30vw]">
         <div className="mb-2 text-5xl font-bold text-purple-700 font-dark">Login / Registro</div>
         <LoginForm></LoginForm>
       </Article>
