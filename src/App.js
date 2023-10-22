@@ -13,7 +13,6 @@ import { NavProvider } from "./contexts/nav.context";
 import { UserProvider } from "./contexts/user.context";
 
 const App = () => {
-  //const [state, setListBook] = useState({ ListBook:[], name:'', edition:'', id:'', bandera:true });
 
   return (
     <AuthProvider>

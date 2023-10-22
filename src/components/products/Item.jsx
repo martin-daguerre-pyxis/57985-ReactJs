@@ -3,18 +3,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemGalery from './ItemGalery';
 import { useGetCategoryName } from '../../contexts/nav.context';
+import { useCart } from '../../contexts/cart.context';
 
 const Item = ({ product }) => {
     const { id, title, description, price, thumbnails, stock, category } = product;
-
     const [showDialog, setShowDialog] = useState(false);
     const [qty, setQuatity] = useState(0);
     const categoryName = useGetCategoryName({ id: category });
 
+    const useCartContext = useCart();  
+
     const onAdd = ({ qty: newValue, data }) => {
-        console.log({ qty: newValue, data });
         setQuatity(newValue);
         setShowDialog(true);
+        let quantity = newValue;
+        useCartContext.actions.addToCart({ ...data, id, quantity });
     }
 
     const dialogClose = () => {

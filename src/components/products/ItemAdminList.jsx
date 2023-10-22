@@ -14,10 +14,10 @@ const ItemAdminList = () => {
             setAdd(true);
         }
     };
+    
     const addItemIdHandler = () => {
         setAdd(true);
     };
-
 
     const getItems = async () => {
         try {

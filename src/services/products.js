@@ -45,7 +45,6 @@ class ProductsDataService {
             ...category.data()
         })
     })
-
     return doc_refs
 }
 

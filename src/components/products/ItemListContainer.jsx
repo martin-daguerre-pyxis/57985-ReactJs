@@ -4,18 +4,17 @@ import productsDataServiceInstance from "../../services/products";
 import ItemAdminList from './ItemAdminList';
 
 const ItemListContainer = ({ category }) => {
-    const [dataProducts, setDataProducts] = useState(null);
+    const [dataProducts, setDataProducts] = useState([]);
     const isAdmin = false;
-    const categoryId = category && category.id;
-
     useEffect(() => {
         const fetchData = async () => {
+            setDataProducts(null); // Limpiar el estado antes de la nueva consulta
             let querySnapshot = null;
             try {
-                if (!categoryId) {
-                    querySnapshot = await productsDataServiceInstance.getAllItems();
+                if (category && category.id) {
+                    querySnapshot = await productsDataServiceInstance.getCategory(category.id);
                 } else {
-                    querySnapshot = await productsDataServiceInstance.getCategory(categoryId);
+                    querySnapshot = await productsDataServiceInstance.getAllItems();
                 }
                 const itemList = querySnapshot.docs.map((doc) => ({
                     id: doc.id,
@@ -28,7 +27,11 @@ const ItemListContainer = ({ category }) => {
             }
         };
         fetchData();
-    }, [category, categoryId]);
+        return () => {
+            setDataProducts(null);
+        }
+    }, [category]);
+
 
 
     if (!dataProducts) {

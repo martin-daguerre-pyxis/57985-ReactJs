@@ -3,7 +3,6 @@ import { createContext, useState, useEffect, useContext } from 'react';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [saludo, setSaludo] = useState("Hola!");
     const [role, setRole] = useState({ id: 1, level: 1, name: 'ANONYMOUS', isAuthenticated: false });
 
     useEffect(() => {
@@ -14,15 +13,6 @@ export const AuthProvider = ({ children }) => {
             isAuthenticated: true,
         });
     }, []);
-
-    const saludar = () => {
-        setSaludo({
-            id: 3,
-            level: 5,
-            name: 'ADMIN',
-            isAuthenticated: true,
-        });
-    };
 
     const login = () => {
         setRole({
@@ -43,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ saludo, saludar, role, login, logout }}>
+        <AuthContext.Provider value={{ role, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
