@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
     const [totalItemsDiscount, setTotalItemsDiscount] = useState(0);
     const [totalItemsShipping, setTotalItemsShipping] = useState(0);
     const [totalItemsTax, setTotalItemsTax] = useState(0);
-    const [tax, setTax] = useState(0.23);
+    const tax = 0.23;
     const localCart = localStorage.getItem('cart');
 
     useEffect(() => {
@@ -23,6 +23,7 @@ export const CartProvider = ({ children }) => {
         } else {
             localStorage.setItem('cart', JSON.stringify([]));
         }
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
@@ -35,12 +36,19 @@ export const CartProvider = ({ children }) => {
         cart.forEach((item) => {
             totalItems += item.quantity;
             totalItemsPrice += item.quantity * item.price;
-            // totalItemsDiscount += item.quantity * item.discount;
-            // totalItemsShipping += item.quantity * item.shipping;
-            // totalItemsTax += item.quantity * item.tax;
         });
 
         totalItemsTax += totalItemsPrice * tax;
+
+        if (totalItemsPrice > 10000) {
+            totalItemsShipping = 0;
+        }
+        if (totalItemsPrice > 5000) {
+            totalItemsDiscount = totalItemsPrice * 0.1;
+        }
+        if (totalItems === 0) {
+            totalItemsShipping = 0;
+        }
 
         setShowCart(false);
         setShowModalAddToCart(false);

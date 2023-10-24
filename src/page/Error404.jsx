@@ -1,10 +1,9 @@
 import DefaultLayout from "../layouts/default.layout";
 import publicUrl from '../utils';
 import Article from '../components/content/Article';
-import withAuth from '../hocs/withAuth';
 import { Link } from 'react-router-dom';
 
-const Error404 = (props) => {
+const Error404 = () => {
 
   return (
       <DefaultLayout className="flex flex-col justify-around flex-grow layout_home-page font-body">
@@ -19,4 +18,4 @@ const Error404 = (props) => {
 }
 
 
-export default withAuth(Error404);
+export default Error404;

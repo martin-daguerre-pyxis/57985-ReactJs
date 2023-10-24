@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useNav } from '../contexts/nav.context';
 
-const Category = (props) => {
+const Category = () => {
   const { slug } = useParams();
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState([]);

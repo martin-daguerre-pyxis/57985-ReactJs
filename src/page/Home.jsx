@@ -12,11 +12,11 @@ const Home = (props) => {
           picture={publicUrl + "subscribe.svg"}
           title="Encuentra las mejores ofertas en Accesorios deportivos!"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac interdum eros, in accumsan neque. Phasellus sollicitudin dapibus scelerisque.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac interdum eros, in accumsan neque. Phasellus sollicitudin dapibus scelerisque."
-          link="/category/3/Accesorios%20deportivos"
+          link="/category/accesorios-deportivos"
           pictureClass="subscribe animated w-full sm:w-[400px]"
         >
           <span className="pt-2 text-lg transition-all duration-700 font-title line-clamp-4 hover:line-clamp-none">Donec ac interdum eros, in accumsan neque. Phasellus sollicitudin dapibus scelerisque.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-          <Link className="btn" to="/category/3/Accesorios%20deportivos">Accesorios deportivos</Link>
+          <Link className="px-20 py-5 mt-10 text-xl text-purple-500 border-2 border-purple-500 btn" to="/category/accesorios-deportivos">Accesorios deportivos</Link>
         </Article>
         <ItemListContainer></ItemListContainer>
       </DefaultLayout>

@@ -48,7 +48,7 @@ const ProductDetail = (props) => {
 
         <Item
           product={{
-            id: product.id,
+            id: itemId,
             title: product.title,
             description: product.description,
             price: product.price,

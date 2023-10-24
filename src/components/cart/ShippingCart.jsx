@@ -9,6 +9,8 @@ const ShippingCart = ({ Show = false, asPage }) => {
     const page = asPage ? asPage : false;
     const useCartContext = useCart();
     const listCart = useCartContext.cart;
+    const totalItems = useCartContext.totalItems;
+
 
     return (
         <>
@@ -20,7 +22,7 @@ const ShippingCart = ({ Show = false, asPage }) => {
                     <span className="h-8 p-2 leading-none text-white bg-orange-600 rounded-3xl">{useCartContext.totalItems}</span>
                 </button>
             )}
-            {show && (
+            {(show && totalItems > 0) &&  (
                 <div className="fixed top-0 left-0 w-full h-full overflow-x-hidden bg-black bg-opacity-40 sticky-0" id="chec-div">
                     <div className="absolute right-0 z-10 w-1/3 h-full max-w-screen-sm overflow-x-hidden transition duration-700 ease-in-out transform translate-x-0" id="checkout">
                         <div className="flex flex-col justify-between h-screen bg-white" id="cart">
@@ -71,6 +73,11 @@ const ShippingCart = ({ Show = false, asPage }) => {
 
 const Resumen = () => {
     const useCartContext = useCart();
+
+    const clearCart = (id) => {
+        window.confirm('¿Estás seguro de eliminar este producto?') &&        
+        useCartContext.actions.clearCart();
+    }
     return (
 
         <div className="flex flex-col justify-between px-8 py-8 overflow-y-auto">
@@ -95,9 +102,14 @@ const Resumen = () => {
                     <p className="text-2xl font-bold leading-normal text-right text-gray-800">{useCurrency({ value: useCartContext.total })}</p>
                 </div>
                 <Link to="/cart" className="flex items-center justify-between w-full px-5 py-5 text-2xl leading-none text-center text-white bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
-                    <span>IR A PAGAR</span><span className="-my-3 text-4xl">$</span>
+                    <span>IR A PAGAR</span><span className="-my-3 text-4xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 fill-white" fill="white" viewBox="0 0 1159 1024">
+                            <path d="M1123.68 512.03h-36.25V329.98a36.34 36.34 0 0 0-36.24-36.4h-36.25V184.34a36.34 36.34 0 0 0-36.25-36.41H856.1L793.6 22.4a36.18 36.18 0 0 0-48.63-16.3l-83.52 42-12.83-25.7a36.16 36.16 0 0 0-48.65-16.24l-282.3 141.78H108.75C48.8 147.94 0 196.94 0 257.17v655.36c0 60.22 48.79 109.22 108.74 109.22h942.45c20 0 36.24-16.3 36.24-36.4V803.3h36.25a36.35 36.35 0 0 0 36.25-36.41V548.44a36.34 36.34 0 0 0-36.25-36.41zM942.44 220.76v72.81H928.6l-36.25-72.81h50.1zM744.96 87.57l102.59 206H783.6L693.86 113.2l51.1-25.63zm-144.99 0 102.58 206H189.8l410.18-206zM108.74 220.75h63.94L75.4 269.62c-1.45-4.01-2.9-8.1-2.9-12.45a36.34 36.34 0 0 1 36.24-36.41zm906.2 728.17h-906.2c-20 0-36.24-16.31-36.24-36.4V359.4c11.88 4.3 24.06 7 36.24 7h906.2v145.63h-145c-79.96 0-144.98 65.32-144.98 145.63 0 80.32 65.02 145.64 144.99 145.64h144.99v145.63zm72.5-218.45h-217.5c-39.94 0-72.49-32.7-72.49-72.82 0-40.11 32.55-72.81 72.5-72.81h217.48v145.63z" />
+                        </svg>
+                    </span>
                 </Link>
             </div>
+            <div onClick={()=>{clearCart()}} className="mt-12 text-right underline cursor-pointer hover:text-red-500">Borrar carrito</div>
         </div>
     )
 }
