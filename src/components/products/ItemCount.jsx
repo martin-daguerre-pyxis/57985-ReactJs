@@ -1,18 +1,27 @@
 import { useState, useEffect } from 'react';
 import useCounter from '../../hooks/counter';
 
-export const ItemCount = ({ id, stock = 1, initial = 1, intervalo = 1, onAdd, data, bgColor, color, btnText }) => {
+export const ItemCount = ({ id, stock = 1, initial = 1, intervalo = 1, onAdd, data, bgColor, color, btnText, onUpdate, isUpdate }) => {
     const { newValue, less, more } = useCounter({ initial, stock, intervalo });
     const [disabled, setDisabled] = useState(true);
+    const [update, setUpdate] = useState(false);
     const backgroundColor = bgColor ? bgColor : "bg-deep-purple-300";
     const textColor = color ? color : "text-white";
     const text = btnText ? btnText : "Agregar al Carrito";
 
     const addProduct = () => {
-        if (newValue >= 1) {
+        if (update) {
+            onUpdate({ qty: newValue, id: id, data });
+        } else if (newValue >= 1) {
             onAdd({ qty: newValue, id: id, data });
         }
     }
+    
+    useEffect(() => {
+        if (isUpdate) {
+            setUpdate(true);
+        }
+    }, [isUpdate]);
 
     useEffect(() => {
         if (newValue >= 1) {

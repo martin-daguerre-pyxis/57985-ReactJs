@@ -16,6 +16,13 @@ const ItemCart = (item) => {
         let id = Item.id;
         useCartContext.actions.addToCart({ ...data, id, quantity });
     }
+
+    const onUpdate = ({ qty: newValue, data }) => {
+        let quantity = newValue;
+        let id = Item.id;
+        useCartContext.actions.updateCart({ ...data, id, quantity });
+    }
+
     const removeFromCart = (id) => {
         window.confirm('¿Estás seguro de eliminar este producto?') &&        
         useCartContext.actions.removeFromCart(Item.id);
@@ -44,8 +51,8 @@ const ItemCart = (item) => {
                 </div>
                 <div className="flex max-w-md mt-2">
                     <ItemCount setValue="true"
-                        btnText="Modificar" bgColor="bg-gray-100" color="text-gray-500"
-                        id={1} stock={10} initial={Item.quantity} data={[]} onAdd={onAdd}
+                        btnText="Modificar" bgColor="bg-gray-100" color="text-purple-800"
+                        id={1} stock={10} initial={Item.quantity} data={[]} onAdd={onAdd} onUpdate={onUpdate} isUpdate={true}
                     />
                     <div className="flex itemms-center" onClick={()=>{removeFromCart(Item.id)}} >
                         <div className="pt-3 text-xs leading-3 text-red-500 underline cursor-pointer pl-9">

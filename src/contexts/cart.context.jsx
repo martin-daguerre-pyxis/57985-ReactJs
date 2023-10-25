@@ -80,10 +80,11 @@ export const CartProvider = ({ children }) => {
             const newCart = cart.filter((item) => item.id !== id);
             setCart(newCart);
         },
-        updateCart: (id, quantity) => {
-            const index = cart.findIndex((cartItem) => cartItem.id === id);
+        updateCart: (item) => {
+            console.log({ item });
+            const index = cart.findIndex((cartItem) => cartItem.id === item.id);
             const newCart = [...cart];
-            newCart[index].quantity = quantity;
+            newCart[index].quantity = item.quantity;
             setCart(newCart);
         },
         clearCart: () => {
