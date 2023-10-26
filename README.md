@@ -1,7 +1,9 @@
 # Comision 57985 React JS
 
 MVP de E-Commerce para el curso de CoderHouse
+
 Autor: **Martín Daguerre**
+
 Hosting URL Público: **https://curso-57985.web.app**
 
 ## Funcionalidades Principales
